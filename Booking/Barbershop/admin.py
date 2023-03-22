@@ -12,9 +12,31 @@ class AppointmentAdmin(admin.ModelAdmin):
         'date',
         'time'
         )
-    
+    list_filter = (
+        'customer_name',
+        'customer_phone_number',
+        'service',
+        'date',
+        'barber',
+    )
+    search_fields = (
+        'customer_name',
+        'customer_phone_number',
+        'service',
+        'date',
+        'barber',
+    )
 
 
-admin.site.register(Appointment)
+
+@admin.register(Service)
+class ServiceAdmin(admin.ModelAdmin):
+    list_display = (
+        'price',
+        'duration'
+    )
+
+
 admin.site.register(Master)
-admin.site.register(Service)
+# admin.site.register(Appointment)
+# admin.site.register(Service)
