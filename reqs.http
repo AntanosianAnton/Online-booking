@@ -1,0 +1,9 @@
+###
+
+POST http://localhost:8000/api/v1/masters/
+Content-Type: application/json
+
+{
+    "name": "master2_name",
+    "phone_number": "+79999999991"
+}

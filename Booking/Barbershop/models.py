@@ -1,7 +1,9 @@
 from django.db import models
 from datetime import timedelta
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 
+
+User = get_user_model()
 
 class Master(models.Model):
     """Модель мастера"""
@@ -32,6 +34,7 @@ class Appointment(models.Model):
     customer_phone_number = models.CharField(max_length=20)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
     date = models.DateField()
+    # забиндить только определенные часы, c 9:00 до 21:00
     time = models.TimeField()
     # other fields...
 
