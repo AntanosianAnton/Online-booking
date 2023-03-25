@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Appointment, Master, Service
+from .models import Appointment, Barber, Service
 
 
 @admin.register(Appointment)
@@ -37,6 +37,6 @@ class ServiceAdmin(admin.ModelAdmin):
     )
 
 
-admin.site.register(Master)
+admin.site.register(Barber)
 # admin.site.register(Appointment)
 # admin.site.register(Service)

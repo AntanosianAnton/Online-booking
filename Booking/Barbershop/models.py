@@ -5,10 +5,10 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-class Master(models.Model):
+class Barber(models.Model):
     """Модель мастера"""
     master = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
+    barber_name = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=20)
     # other fields...
 
@@ -18,7 +18,7 @@ class Master(models.Model):
 
 class Service(models.Model):
     """Модель услуги"""
-    name = models.CharField(max_length=100)
+    service_name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     duration = models.DurationField(default=timedelta(hours=1))
     # other fields...
@@ -29,7 +29,7 @@ class Service(models.Model):
 
 class Appointment(models.Model):
     """Модель записи"""
-    barber = models.ForeignKey(Master, on_delete=models.CASCADE)
+    barber = models.ForeignKey(Barber, on_delete=models.CASCADE)
     customer_name = models.CharField(max_length=100)
     customer_phone_number = models.CharField(max_length=20)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
