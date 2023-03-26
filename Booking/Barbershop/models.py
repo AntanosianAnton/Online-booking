@@ -5,26 +5,28 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+
 class Barber(models.Model):
     """Модель мастера"""
-    master = models.OneToOneField(User, on_delete=models.CASCADE)
+    # master = models.OneToOneField(User, on_delete=models.CASCADE)
+    # убрал это поле, без него работает
     barber_name = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=20)
     # other fields...
 
     def __str__(self):
-        return self.name
+        return self.barber_name
 
 
 class Service(models.Model):
     """Модель услуги"""
     service_name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    duration = models.DurationField(default=timedelta(hours=1))
+    duration = models.DurationField(default=timedelta(minutes=0))
     # other fields...
 
     def __str__(self):
-        return self.name
+        return str(self.service_name) + ": $" + str(self.price)
 
 
 class Appointment(models.Model):
@@ -39,4 +41,5 @@ class Appointment(models.Model):
     # other fields...
 
     def __str__(self):
-        return (f"{self.customer_name} - Вы записаны на {self.service.name} дата: {self.date} {self.time}")
+        return (f"{self.customer_name} - Вы записаны на"
+                f"{self.service.service_name} дата: {self.date} {self.time}")

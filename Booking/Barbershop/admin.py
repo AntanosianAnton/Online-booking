@@ -28,15 +28,18 @@ class AppointmentAdmin(admin.ModelAdmin):
     )
 
 
-
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
     list_display = (
+        'service_name',
         'price',
         'duration'
     )
 
 
-admin.site.register(Barber)
-# admin.site.register(Appointment)
-# admin.site.register(Service)
+@admin.register(Barber)
+class BarberAdmin(admin.ModelAdmin):
+    list_display = (
+        'barber_name',
+        'phone_number'
+    )

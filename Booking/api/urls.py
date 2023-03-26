@@ -3,7 +3,7 @@ from rest_framework.routers import SimpleRouter
 from .views import BarberViewSet, ServiceViewSet, AppointmentViewSet
 
 router = SimpleRouter()
-router.register('masters', BarberViewSet)
+router.register('barbers', BarberViewSet)
 router.register('services', ServiceViewSet)
 router.register('records', AppointmentViewSet)
 
