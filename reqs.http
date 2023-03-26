@@ -1,22 +1,30 @@
 ###
+GET http://localhost:8000/api/v1/barbers/
+Content-Type: application/json
 
+{
+    "name": "barber2"
+}
+
+###
 GET http://localhost:8000/api/v1/services/
 Content-Type: application/json
 
 {
-    "master": "1",
-    "barber_name": "master2_name",
+    "name": "",
     "phone_number": "+79999999991"
 }
 
 ###
 
-POST http://localhost:8000/api/v1/records/
+GET http://localhost:8000/api/v1/records/
 Content-Type: application/json
 
 {
     "date": "2023-04-01",
-    "time": "10:00:00",
+    "time": "12:00:00",
     "service": "cut the penis",
-    "barber": "master2_name"
+    "barber_name": "master2_name",
+    "customer_phone_number": "+70321312323",
+    "customer_name": "customer1"
 }

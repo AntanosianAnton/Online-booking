@@ -5,7 +5,7 @@ from .models import Appointment, Barber, Service
 @admin.register(Appointment)
 class AppointmentAdmin(admin.ModelAdmin):
     list_display = (
-        'barber',
+        'barber_name',
         'customer_name',
         'customer_phone_number',
         'service',
@@ -17,7 +17,7 @@ class AppointmentAdmin(admin.ModelAdmin):
         'customer_phone_number',
         'service',
         'date',
-        'barber',
+        'barber_name',
     )
     search_fields = (
         'customer_name',
@@ -40,6 +40,5 @@ class ServiceAdmin(admin.ModelAdmin):
 @admin.register(Barber)
 class BarberAdmin(admin.ModelAdmin):
     list_display = (
-        'barber_name',
-        'phone_number'
+        'name',
     )
