@@ -33,7 +33,7 @@ class Appointment(models.Model):
     # @staticmethod
     def current_month_days() -> List[Tuple[int, str]]:
         now = datetime.datetime.now()
-        month_number = now.strftime("%m")
+        # month_number = now.strftime("%m")
         return [(i, str(i)) for i in range(1, 32)
                 if i <= calendar.monthrange(now.year, now.month)[1]]
     barber_name = models.ForeignKey(Barber, on_delete=models.CASCADE)
