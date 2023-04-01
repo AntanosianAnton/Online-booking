@@ -40,5 +40,5 @@ class ServiceAdmin(admin.ModelAdmin):
 @admin.register(Barber)
 class BarberAdmin(admin.ModelAdmin):
     list_display = (
-        'name',
+        'barber_name',
     )
