@@ -1,36 +1,32 @@
-### SERVICES GET
+###
+GET http://localhost:8000/api/v1/barbers/
+Content-Type: application/json
 
+{
+    "name": "barber2"
+}
+
+###
 GET http://localhost:8000/api/v1/services/
 Content-Type: application/json
 
 {
-    "barber_name": "aboba",
-    "phone_number": "+79999999999"
-}
-
-### SERVICES POST
-
-POST http://localhost:8000/api/v1/services/
-Content-Type: application/json
-
-{
-    "service_name": "Детская стрижка",
-    "price": "500",
-    "duration" : "30"
+    "name": "",
+    "phone_number": "+79999999991"
 }
 
 ###
 
-POST http://localhost:8000/api/v1/records/
+GET http://localhost:8000/api/v1/records/
 Content-Type: application/json
 
 {
-    "customer_name": "your mother",
-    "customer_phone_number": "+5555555555",
-    "date": "2023-05-01",
-    "time": "10:00:00",
-    "service": "haircut",
-    "barber": "aboba"
+    "date": "2023-04-01",
+    "time": "12:00:00",
+    "service": "cut the penis",
+    "barber_name": "master2_name",
+    "customer_phone_number": "+70321312323",
+    "customer_name": "customer1"
 }
 ###
 
