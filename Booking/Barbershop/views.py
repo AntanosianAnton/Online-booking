@@ -9,17 +9,16 @@ from .models import Barber, Service, Appointment
 class HomePageView(TemplateView):
     template_name = 'barbershop/home.html'
 
-    def appointment_list(request):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         appointments = Appointment.objects.filter(
             date__gte=timezone.now() - timezone.timedelta(days=56)
         ).order_by('-date', 'time')
         paginator = Paginator(appointments, 28)
-        page = request.GET.get('page')
-        appointments_page = paginator.get_page(page)
-        return render(
-            request,
-            'home.html', {'appointments_page': appointments_page}
-        )
+        page = self.request.GET.get('page')
+        context['page_obj'] = paginator.get_page(page)
+        context['title'] = 'Welcome to Barbershoppo!!!'
+        return context
 
 
 class BarberPageView(TemplateView):
