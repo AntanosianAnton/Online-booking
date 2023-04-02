@@ -18,7 +18,7 @@ class Service(models.Model):
     duration = models.DurationField(default=timedelta(minutes=0))
 
     def __str__(self):
-        return str(self.service_name) + ": $" + str(self.price)
+        return str(self.service_name) + ": £ " + str(self.price)
 
 
 class Appointment(models.Model):

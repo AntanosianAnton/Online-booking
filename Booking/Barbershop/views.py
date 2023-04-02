@@ -3,7 +3,7 @@ from .models import Barber, Service, Appointment
 
 
 class HomePageView(TemplateView):
-    template_name = 'home.html'
+    template_name = 'barbershop/home.html'
 
 
 class BarberPageView(TemplateView):
