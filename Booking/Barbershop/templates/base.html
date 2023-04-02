@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Barbershop Booking</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'Barbershop:home' %}">Home</a></li>
+            <li>Barbers</li>
+            <li>Services</li>
+            <li>Appointment</li>
+        </ul>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <footer>
+        <p>&copy; 2023 Bar

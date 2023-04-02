@@ -7,7 +7,7 @@ class BarberSerializer(serializers.ModelSerializer):
     class Meta:
         model = Barber
         fields = '__all__'
-    
+
 
 class ServiceSerializer(serializers.ModelSerializer):
     class Meta:

@@ -30,17 +30,11 @@ class Service(models.Model):
 
 class Appointment(models.Model):
     """Модель записи"""
-    # @staticmethod
-    def current_month_days() -> List[Tuple[int, str]]:
-        now = datetime.datetime.now()
-        # month_number = now.strftime("%m")
-        return [(i, str(i)) for i in range(1, 32)
-                if i <= calendar.monthrange(now.year, now.month)[1]]
     barber_name = models.ForeignKey(Barber, on_delete=models.CASCADE)
     customer_name = models.CharField(max_length=100)
     customer_phone_number = models.CharField(max_length=20)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
-    date = models.IntegerField(choices=current_month_days())
+    date = models.DateField()
     # забиндить только определенные часы, c 9:00 до 21:00
     time = models.CharField(max_length=5, choices=(
         ('09:00', '09:00'),
