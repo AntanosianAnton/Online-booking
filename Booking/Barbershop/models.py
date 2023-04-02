@@ -1,12 +1,5 @@
 from django.db import models
 from datetime import timedelta
-from typing import List, Tuple
-import datetime
-import calendar
-from django.contrib.auth import get_user_model
-
-
-User = get_user_model()
 
 
 class Barber(models.Model):
@@ -35,7 +28,6 @@ class Appointment(models.Model):
     customer_phone_number = models.CharField(max_length=20)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
     date = models.DateField()
-    # забиндить только определенные часы, c 9:00 до 21:00
     time = models.CharField(max_length=5, choices=(
         ('09:00', '09:00'),
         ('10:00', '10:00'),
